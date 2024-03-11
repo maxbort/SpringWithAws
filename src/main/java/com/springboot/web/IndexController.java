@@ -1,5 +1,6 @@
 package com.springboot.web;
 
+import com.springboot.config.auth.LoginUser;
 import com.springboot.config.auth.dto.SessionUser;
 import com.springboot.service.PostsService;
 import com.springboot.web.dto.PostsResponseDto;
@@ -18,10 +19,12 @@ public class IndexController {
     private final PostsService postsService;
     private final HttpSession httpSession;
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts", postsService.findAllDesc()  );
 
-        SessionUser user= (SessionUser) httpSession.getAttribute("user");
+//        SessionUser user= (SessionUser) httpSession.getAttribute("user");
+        // @LoginUser SessionUser user로 대체
+        // 어느 컨트롤러든 @LoginUser 만 사용하면 세션 정보 가져올 수 있음.
         if(user!=null){
             model.addAttribute("userName",user.getName());
         }
