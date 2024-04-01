@@ -16,6 +16,8 @@ before_script:
 before_install:
   - chmod +x gradlew
   - export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+  - export PATH=$JAVA_HOME/bin:$PATH
+
 
 # Travis CI 서버의 HOME
 cache:
