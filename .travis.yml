@@ -8,6 +8,7 @@ branches:
 
 before_install:
   - chmod +x gradlew
+  - export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # Travis CI 서버의 HOME
 cache:
