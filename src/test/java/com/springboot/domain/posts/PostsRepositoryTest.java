@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
@@ -26,7 +27,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void 게시글_불러오기(){
+    public void load_posts(){
         //given
         String title = "테스트 게시글";
         String content = "테스트 본문";
@@ -47,7 +48,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void BaseTimeEntity_등록(){
+    public void BaseTimeEntity_join(){
         //given
         LocalDateTime now = LocalDateTime.of(2024,3,7,0,0,0);
         postsRepository.save(Posts.builder()
